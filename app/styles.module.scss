@@ -1,0 +1,125 @@
+.pageLayout {
+	padding: 1rem;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@media screen and (min-width: 750px) {
+		flex-direction: row;
+		align-items: baseline;
+	}
+	
+	justify-content: space-between;
+	// border: solid 1px #f00;
+	
+	form {
+		margin-left: 0.25rem;
+		display: flex;
+		align-items: center;
+		.searchIcon {
+			// border: solid 2px #f00;
+			font-size: 2.5rem;
+			margin-right: 0.5rem;
+		}
+		input {
+			font-size: 1.5rem;
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+			border: 0;
+		}
+	}
+}
+
+.menu {
+	margin: 1rem;
+	background-color: #48f;
+	color: #fff;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	&:hover {
+		cursor: pointer;
+		background-color: #6bf;
+	}
+}
+
+.lozenge {
+	border-radius: 0.5rem;
+	border: solid 2px #fff;
+	padding: 0.25rem;
+	a {
+		text-decoration: none;
+	}
+}
+
+.collection {
+	h2 {
+		margin: 1rem 0 4rem 0;
+	}
+	.paintings {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: 1rem;
+		padding: 0;
+		// border: solid 2px #f88;
+		@media screen and (min-width: 600px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: 750px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		li {
+			background-color: #eee;
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+			color: #48f;
+			justify-self: center; 
+			align-self: end;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-family: "Microgramma";
+			a {
+				color: #48f;
+				position: relative;
+			}
+			&:hover {
+				cursor: pointer;
+				background-color: #ddd;
+			}
+			p {
+				border: solid 1px #48f;
+				word-wrap: normal;
+				word-break: break-all;
+			}
+		}
+	}
+	
+	.loadMore {
+		display: flex;
+		justify-content: center;
+		margin-top: 2rem
+	}
+}
+
+.titleBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	.title {
+		text-transform: capitalize;
+		color: #fff;
+	}
+}
+
+.frame {
+	border: solid 4px #ccc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.25rem;
+	img {
+		max-width: 100%;
+	}
+}
