@@ -29,7 +29,7 @@ export default function RootLayout({
           {children}
         </div>
         <footer>
-          <a href="https://twitter.com/GavinLavelle" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> | <a href="#"><i class="fa-brands fa-instagram"></i></a> | Site by <a href="https://ralphlavelle.net" target="_blank">RL</a>
+          <a href="https://twitter.com/GavinLavelle" target="_blank"><i className="fa-brands fa-x-twitter"></i></a> | <a href="#"><i className="fa-brands fa-instagram"></i></a> | Site by <a href="https://ralphlavelle.net" target="_blank">RL</a>
         </footer>
       </body>
     </html>
