@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { ICollection, IPainting } from '../interfaces';
+import { IPainting } from '../interfaces';
 import styles from '../styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link';

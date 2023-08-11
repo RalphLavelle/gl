@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { photoManager } from '../../../components/photoManager';
 import styles from './../../../styles.module.scss'
 import { collectionManager } from '@/app/components/collectionManager';
+import Image from 'next/image'
 
 async function getPhotoSizes(id: number) {
 
