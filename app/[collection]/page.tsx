@@ -15,8 +15,8 @@ async function getPhotoset(id: string) {
 	const method = "flickr.photosets.getPhotos";
 	const fields = ["description", "url_s", "tags"];
 
-	//const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photoset_id=${id}&format=json&nojsoncallback=1&extras=${fields.join(",")}`;
-	const url = 'http://localhost:3000/data/paintings.json';
+	const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photoset_id=${id}&format=json&nojsoncallback=1&extras=${fields.join(",")}`;
+	//const url = 'http://localhost:3000/data/paintings.json';
 	
 	const res = await fetch(url);
    
@@ -28,10 +28,7 @@ async function getPhotoset(id: string) {
 export default async function Paintings({ params }: { params: { collection: string }}) {
 
 	const collection = collectionManager.findBySlug(params.collection);
-	console.log(`collection: ${JSON.stringify(collection)}`);
 	const photoset = await getPhotoset(collection.id);
-
-	// console.log(`>>> ${JSON.stringify(photoset.photoset.photo[0])}`);
 
 	const paintings = photoset.photoset.photo.map(p => {
 		p.dimensions = {
