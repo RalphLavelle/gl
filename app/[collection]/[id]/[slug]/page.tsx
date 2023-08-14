@@ -31,15 +31,15 @@ export default async function Painting({ params }: { params: { collection: strin
 	const srcset = photoSizes.sizes.size.map((s: any) => `${s.source} ${s.width}w`).join(", ");
 
 	return (
-		<>
+		<div className={styles.painting}>
 			{ loading ? <Image src="/spinner.svg" width="32" height="32" alt="Loading" /> : null }
 			<div className={styles.titleBar}>
-				<h2 className={styles.title}>{ title }</h2>
+				<h2>{ title }</h2>
 				<h3><Link href={`/${params.collection}`}>{collection.title}</Link></h3>
 			</div>
 			<div className={styles.frame}>
 				<img srcSet={srcset} alt="Pic" />
 			</div>
-		</>
+		</div>
 	)
 }

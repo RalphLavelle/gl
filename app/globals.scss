@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 @font-face {
@@ -10,13 +12,12 @@
 }
 
 body {
-    background-image: url('/images/1.jpg');
+    background-image: url('/images/bg.jpg');
     background-position: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
     padding: 0;
     margin: 0;
 }
@@ -25,30 +26,71 @@ a {
   text-decoration: none;
   color: #fff;
   &:hover {
-    // text-decoration: underline;
     color: #ddd;
   }
 }
 
 header {
+  //border: solid 1px #fff;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
-  background-color: #48f;
-  display: flex;
-  padding: 1rem;
+  gap: 0.5rem;
+  //justify-content: center;
+  align-items: center;
+  padding: map-get($margins, small);
+  @include respond-to(small) {
+    padding: map-get($margins, medium);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
   color: #fff;
+  background-color: map-get($colours, primary);
+  opacity: 0.75;
+  h1 {
+    opacity: 1;
+    //border: solid 2px #0f0;
+    // display: flex;
+    //   flex-direction: row;
+    //   justify-content: center;
+    //   //align-items: flex-end;
+    //   width: 100%;
+    // a {
+    //   border: solid 2px #00f;
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: stretch;
+    //   //width: 100%;
+    // }
+  }
+  // background-color: #48f;
+  form {
+		display: flex;
+    justify-content: flex-end;
+		align-items: center;
+		//width: 100%;
+    //border: solid 2px #f00;
+    // flex: 0 0 auto;
+		input {
+      // max-width: 50%;
+		  //font-size: 1.5rem;
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+			border: 0;
+      flex: 0 1 auto;
+		}
+	}
 }
 
 h1 {
-  font-size: 4em;
-  @media screen and (min-width: 768px) {
-		font-size: 4em;
-	}
+  font-size: 3em;
+  // @media screen and (min-width: 768px) {
+	// 	font-size: 4em;
+	// }
   font-family: "Microgramma";
   margin: 0;
   padding: 0;
+  line-height: 2rem;
 }
 
 h2 {
@@ -59,16 +101,23 @@ h2 {
 	}
   font-family: "Microgramma";
   color: #fff;
+  word-break: break-all;
+  line-height: 2rem;
 }
 
 h3 {
   color: #fff;
   font-size: 1.25em;
   font-family: "Microgramma";
+  word-break: break-all;
+}
+
+ul {
+  padding: 0;
 }
 
 button {
-  background-color: #48f;
+  background-color: map-get($colours, primary);
   color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -76,7 +125,7 @@ button {
 
 footer {
   background-color: #000;
-  color: #48f;
+  color: map-get($colours, primary);
   display: flex;
   justify-content: center;
   padding: 1rem;

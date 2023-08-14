@@ -2,6 +2,7 @@ import './globals.scss'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import styles from './styles.module.scss'
+import SearchForm from './components/searchForm' 
 
 export const metadata: Metadata = {
   title: 'Gavin Lavelle: Artist',
@@ -13,18 +14,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  
+
   return (
     <html lang="en">
       <body>
         <div>
-          <header className={styles.header}>
-            <Link href="/"><h1>Gavin Lavelle</h1></Link>
-            <form>
-              <div className={styles.searchIcon}>
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <input type="text" placeholder="Title, description, etc." />
-            </form>
+          <header>
+            <h1><Link href="/">Gavin Lavelle</Link></h1>
+            <SearchForm />
           </header>
           {children}
         </div>

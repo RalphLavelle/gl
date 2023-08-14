@@ -1,68 +1,64 @@
+@import './variables.scss';
+
 .pageLayout {
-	padding: 1rem;
+	//padding: 1rem;
 }
 
-.header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	@media screen and (min-width: 750px) {
-		flex-direction: row;
-		align-items: baseline;
-	}
-	
-	justify-content: space-between;
-	// border: solid 1px #f00;
-	
-	form {
-		margin-left: 0.25rem;
-		display: flex;
-		align-items: center;
-		.searchIcon {
-			// border: solid 2px #f00;
-			font-size: 2.5rem;
-			margin-right: 0.5rem;
-		}
-		input {
-			font-size: 1.5rem;
-			border-radius: 0.5rem;
-			padding: 0.5rem;
-			border: 0;
-		}
-	}
+.searchIcon {
+	font-size: 1.5rem;
+	margin-right: 0.5rem;
 }
 
 .menu {
-	margin: 1rem;
-	background-color: #48f;
+	margin: map-get($margins, small);
+	@include respond-to(medium) {
+		margin: map-get($margins, medium);
+	}
+	background-color: map-get($colours, primary);
+	// border: solid 1px #f00;
+	opacity: 0.8;
 	color: #fff;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	&:hover {
 		cursor: pointer;
-		background-color: #6bf;
+		// background-color: #6bf;
 	}
 }
 
 .lozenge {
-	border-radius: 0.5rem;
-	border: solid 2px #fff;
-	padding: 0.25rem;
-	a {
-		text-decoration: none;
-	}
+// 	border-radius: 0.5rem;
+// 	border: solid 2px #fff;
+// 	padding: 0.25rem;
+// 	a {
+// 		text-decoration: none;
+// 	}
 }
 
 .collection {
-	h2 {
-		margin: 1rem 0 4rem 0;
+	.titleBar {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: map-get($margins, small);
+		background-color: map-get($colours, tertiary);
+		opacity: 0.75;
+		@include respond-to(small) {
+			padding: map-get($margins, medium);
+		}
+		h2 {
+			// margin: map-get($margins, small);
+			// @include respond-to(small) {
+			// 	margin: map-get($margins, medium);
+			// }
+			word-break: keep-all;
+		}
 	}
 	.paintings {
 		display: grid;
 		grid-template-columns: 1fr;
 		row-gap: 1rem;
-		padding: 0;
-		// border: solid 2px #f88;
+		//border: solid 2px #f88;
 		@media screen and (min-width: 600px) {
 			grid-template-columns: 1fr 1fr;
 		}
@@ -73,7 +69,7 @@
 			background-color: #eee;
 			border-radius: 0.5rem;
 			padding: 0.5rem;
-			color: #48f;
+			color: map-get($colours, primary);
 			justify-self: center; 
 			align-self: end;
 			display: flex;
@@ -81,7 +77,7 @@
 			align-items: center;
 			font-family: "Microgramma";
 			a {
-				color: #48f;
+				color: map-get($colours, primary);
 				position: relative;
 			}
 			&:hover {
@@ -89,13 +85,11 @@
 				background-color: #ddd;
 			}
 			p {
-				border: solid 1px #48f;
 				word-wrap: normal;
 				word-break: break-all;
 			}
 		}
 	}
-	
 	.loadMore {
 		display: flex;
 		justify-content: center;
@@ -103,23 +97,31 @@
 	}
 }
 
-.titleBar {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
-	.title {
-		text-transform: capitalize;
-		color: #fff;
+.painting {
+	.titleBar {
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-between;
+		//align-items: baseline;
+		padding: map-get($margins, small);
+		background-color: map-get($colours, secondary);
+		opacity: 0.75;
+		@include respond-to(small) {
+			padding: map-get($margins, medium);
+		}
+		h2 {
+			text-transform: capitalize;
+			color: #fff;
+		}
 	}
-}
-
-.frame {
-	border: solid 4px #ccc;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 0.25rem;
-	img {
-		max-width: 100%;
+	.frame {
+		border: solid 4px map-get($colours, grey);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.25rem;
+		img {
+			max-width: 100%;
+		}
 	}
 }

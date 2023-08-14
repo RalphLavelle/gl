@@ -44,7 +44,9 @@ export default async function Paintings({ params }: { params: { collection: stri
 	
 	return (
 		<div className={styles.collection}>
-			<h2>{ collection.title }</h2>
+			<div className={styles.titleBar}>
+				<h2>{ collection.title }</h2>
+			</div>
 			<ul className={styles.paintings}>
 				{ paintings.map((p: IPainting, i: number) => (
 					<li key={i}>
