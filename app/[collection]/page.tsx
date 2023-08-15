@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { IPainting } from '../interfaces';
 import styles from '../styles.module.scss'
 import Image from 'next/image'
@@ -6,12 +5,12 @@ import Link from 'next/link';
 import { photoManager } from '../components/photoManager';
 import { collectionManager } from '../components/collectionManager';
 
-const LoadMore = dynamic(() => import("./loadMore"), { ssr: false });
+// const LoadMore = dynamic(() => import("./loadMore"), { ssr: false });
 
 async function getPhotoset(id: string) {
 
 	const flickrEndpoint = "https://www.flickr.com/services/rest";
-	const flickrAPIKey="590493df250838ceb832f62bb08a1a07";
+	const flickrAPIKey=process.env.FLICKR_API_KEY;
 	const method = "flickr.photosets.getPhotos";
 	const fields = ["description", "url_s", "tags"];
 
@@ -58,7 +57,7 @@ export default async function Paintings({ params }: { params: { collection: stri
 								alt={p.title}
 							/>
 						</Link>
-						<p><Link href={`/paintings/${p.id}/${p.slug}`}>{p.title}</Link></p>
+						<p><Link href={`/${collection.slug}/${p.id}/${p.slug}`}>{p.title}</Link></p>
 					</li>
 				))}
 			</ul>

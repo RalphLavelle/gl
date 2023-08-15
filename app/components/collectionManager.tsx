@@ -4,16 +4,20 @@ const collectionManager = {
 	getCollections: (): (ICollection[]) => {
 		let collections: ICollection[] = [
 			{
-				id: "72157681550801763",
-				title: "Copper Burned Green"
+				id: "72177720310485996",
+				title: "2020"
 			},
 			{
-				id: "72157633416648755",
-				title: "Connemara Bog Week Exhibition"
+				id: "72177720310485861",
+				title: "2021"
 			},
 			{
-				id: "72157624950445573",
-				title: "works in progress"
+				id: "72177720310485741",
+				title: "2022"
+			},
+			{
+				id: "72177720310496553",
+				title: "2023"
 			}
 		];
 		return collections.map(c => {

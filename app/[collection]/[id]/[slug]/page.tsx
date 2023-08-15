@@ -7,7 +7,7 @@ import Image from 'next/image'
 async function getPhotoSizes(id: number) {
 
 	const flickrEndpoint = "https://www.flickr.com/services/rest";
-	const flickrAPIKey="590493df250838ceb832f62bb08a1a07";
+	const flickrAPIKey=process.env.FLICKR_API_KEY;
 	const method = "flickr.photos.getSizes";
 
 	const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photo_id=${id}&format=json&nojsoncallback=1`;

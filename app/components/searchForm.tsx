@@ -1,12 +1,15 @@
 'use client'
 import styles from '../styles.module.scss'
- 
+import { useRouter } from 'next/navigation'
+
 export default function SearchForm() {
+
+	const router = useRouter()
 
 	const search = (event) => {
 		const searchTerm = event.target.value;
 		  if(searchTerm.length > 2) {
-			alert(`Searching for ${searchTerm}...`);
+			router.push('/search?term=' + searchTerm)
 		  }
 	};
  

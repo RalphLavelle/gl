@@ -14,16 +14,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
-  
-
   return (
     <html lang="en">
       <body>
         <div>
           <header>
             <h1><Link href="/">Gavin Lavelle</Link></h1>
-            <SearchForm />
+            <div className={styles.headerItems}>
+              <span><Link href="/about">About</Link></span>
+              <SearchForm />
+            </div>
           </header>
           {children}
         </div>
