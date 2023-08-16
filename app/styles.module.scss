@@ -14,35 +14,42 @@
 	font-size: 1.25rem;
 }
 
-.searchIcon {
-	font-size: 1.5rem;
-	margin-right: 0.5rem;
+.content {
+	color: #fff;
+	font-family: "Roboto";
+	margin: map-get($margins, small);
+	@include respond-to(small) {
+		margin: map-get($margins, medium);
+	}
+	@include respond-to(medium) {
+		margin: map-get($margins, xlarge);
+	}
 }
 
-.menu {
+.intro {
 	margin: map-get($margins, small);
+	margin-top: 1rem;
 	@include respond-to(medium) {
 		margin: map-get($margins, medium);
 	}
-	background-color: map-get($colours, primary);
-	// border: solid 1px #f00;
+}
+
+.menu {
+	// margin: map-get($margins, small);
+	// @include respond-to(medium) {
+	// 	margin: map-get($margins, medium);
+	// }
+	//margin: 0.15rem 0;
+	border-bottom: solid 3px map-get($colours, secondary);
+	background-color: map-get($colours, tertiary);
 	opacity: 0.8;
 	color: #fff;
-	border-radius: 0.5rem;
+	//border-radius: 0.5rem;
 	padding: 0.5rem;
 	&:hover {
 		cursor: pointer;
-		// background-color: #6bf;
+		background-color: map-get($colours, primary);
 	}
-}
-
-.lozenge {
-// 	border-radius: 0.5rem;
-// 	border: solid 2px #fff;
-// 	padding: 0.25rem;
-// 	a {
-// 		text-decoration: none;
-// 	}
 }
 
 .collection {
@@ -57,10 +64,6 @@
 			padding: map-get($margins, medium);
 		}
 		h2 {
-			// margin: map-get($margins, small);
-			// @include respond-to(small) {
-			// 	margin: map-get($margins, medium);
-			// }
 			word-break: keep-all;
 		}
 	}
@@ -68,7 +71,6 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		row-gap: 1rem;
-		//border: solid 2px #f88;
 		@media screen and (min-width: 600px) {
 			grid-template-columns: 1fr 1fr;
 		}
@@ -107,12 +109,29 @@
 	}
 }
 
+.otherCollections {
+	display: flex;
+	background-color: map-get($colours, primary);
+	justify-content: space-evenly;
+	margin: 0;
+	li {
+		flex: 0 1 33%;
+		text-align: center;
+		padding: 0.5rem;
+		font-family: "Microgramma";
+		&:hover {
+			cursor: pointer;
+			background-color: map-get($colours, secondary);
+		}
+		border-left: 1px solid #fff;
+		border-right: 1px solid #fff;
+	}
+}
+
 .painting {
 	.titleBar {
 		display: flex;
 		flex-direction: column;
-		// justify-content: space-between;
-		//align-items: baseline;
 		padding: map-get($margins, small);
 		background-color: map-get($colours, secondary);
 		opacity: 0.75;

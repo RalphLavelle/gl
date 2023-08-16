@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles.module.scss'
-import { photoManager } from '../components/photoManager';
-import { IPainting } from '../interfaces';
+import { photoManager } from '../../app/components/photoManager';
+import { IPainting } from '../../app/interfaces';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 

@@ -3,7 +3,7 @@ import styles from '../styles.module.scss'
 export default function About() {
 
   return (
-    <div className={styles.about}>
+    <div className={styles.content}>
 		<h3>b.1969</h3>
 		<h3>BA Fine Art (painting) 1986-1991 NCAD, Dublin.</h3>
 		<h3>Lives and works in Co. Galway</h3>
