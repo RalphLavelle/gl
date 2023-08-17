@@ -1,16 +1,30 @@
-import Link from 'next/link';
-import { photoManager } from '../../../components/photoManager';
+import Link from 'next/link'
+import { photoManager } from '../../../components/photoManager'
 import styles from './../../../styles.module.scss'
-import { collectionManager } from '@/app/components/collectionManager';
+import { collectionManager } from '../../../components/collectionManager'
 import Image from 'next/image'
+import { flickrManager } from '../../../components/flickrManager'
+import { IFlickrOptions } from '@/app/interfaces'
 
 async function getPhotoSizes(id: number) {
+	const flickrOptions: IFlickrOptions = {
+		method: "photos.getSizes",
+		photo_id: id.toString()
+	};
+	const url = flickrManager.makeUrl(flickrOptions)
+	const res = await fetch(url);
+   
+	if (!res.ok) throw new Error('Failed to fetch data')
+   
+	return res.json()
+}
 
-	const flickrEndpoint = "https://www.flickr.com/services/rest";
-	const flickrAPIKey=process.env.FLICKR_API_KEY;
-	const method = "flickr.photos.getSizes";
-
-	const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photo_id=${id}&format=json&nojsoncallback=1`;
+async function getInfo(id: number) {
+	const flickrOptions: IFlickrOptions = {
+		method: "photos.getInfo",
+		photo_id: id.toString()
+	};
+	const url = flickrManager.makeUrl(flickrOptions)
 	
 	const res = await fetch(url);
    
@@ -22,6 +36,7 @@ async function getPhotoSizes(id: number) {
 export default async function Painting({ params }: { params: { collection: string, id: number, slug: string } }) {
 
 	let loading = true;
+	let description = "Loading..."
 	const title = photoManager.resolveTitle(params.slug);
 	const photoSizes = await getPhotoSizes(params.id);
 	loading = false;
@@ -29,6 +44,10 @@ export default async function Painting({ params }: { params: { collection: strin
 	const collection = collectionManager.findBySlug(params.collection);
 
 	const srcset = photoSizes.sizes.size.map((s: any) => `${s.source} ${s.width}w`).join(", ");
+
+	// now get the description
+	const info = await getInfo(params.id)
+	description = info.photo.description._content
 
 	return (
 		<div className={styles.painting}>
@@ -40,6 +59,7 @@ export default async function Painting({ params }: { params: { collection: strin
 			<div className={styles.frame}>
 				<img srcSet={srcset} alt={title} />
 			</div>
+			<p className={styles.description}>{ description }</p>
 		</div>
 	)
 }

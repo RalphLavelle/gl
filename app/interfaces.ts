@@ -5,6 +5,13 @@ export interface ICollection {
 	title: string;
 }
 
+export interface IFlickrOptions {
+	extras?: Array<string>;
+	method: string;
+	photo_id?: string;
+	photoset_id?: string;
+}
+
 export interface IPainting {
 	description: string;
 	dimensions: {

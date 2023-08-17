@@ -65,10 +65,16 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		row-gap: 1rem;
+		column-gap: 1rem;
+		margin: map-get($margins, small);
+		@include respond-to(small) {
+			margin: map-get($margins, medium);
+		}
 		@media screen and (min-width: 600px) {
 			grid-template-columns: 1fr 1fr;
 		}
 		@media screen and (min-width: 750px) {
+			column-gap: 2rem;
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 		li {
@@ -92,7 +98,11 @@
 			}
 			p {
 				word-wrap: normal;
-				word-break: break-all;
+				padding: 0 1rem;
+				font-size: 0.8rem;
+			}
+			img {
+				max-width: 100%;
 			}
 		}
 	}
@@ -136,6 +146,9 @@
 			text-transform: capitalize;
 			color: #fff;
 		}
+		h3 {
+			align-self: flex-end;
+		}
 	}
 	.frame {
 		border: solid 4px map-get($colours, grey);
@@ -146,6 +159,18 @@
 		img {
 			max-width: 100%;
 		}
+	}
+	.description {
+		background-color: map-get($colours, tertiary);
+		padding: map-get($margins, small);
+		opacity: $opacity;
+		@include respond-to(small) {
+			padding: map-get($margins, medium);
+		}
+		margin: 0;
+		color: #fff;
+		font-family: "Roboto";
+		text-align: center;
 	}
 }
 

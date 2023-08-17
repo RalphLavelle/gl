@@ -1,27 +1,26 @@
-import { ICollection, IPainting } from '../interfaces';
+import { ICollection, IFlickrOptions, IPainting } from '../interfaces';
 import styles from '../styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link';
 import { photoManager } from '../components/photoManager';
 import { collectionManager } from '../components/collectionManager';
+import { flickrManager } from '@/app/components/flickrManager';
 
 // const LoadMore = dynamic(() => import("./loadMore"), { ssr: false });
 
 async function getPhotoset(id: string) {
-
-	const flickrEndpoint = "https://www.flickr.com/services/rest";
-	const flickrAPIKey=process.env.FLICKR_API_KEY;
-	const method = "flickr.photosets.getPhotos";
-	const fields = ["description", "url_s", "tags"];
-
-	const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photoset_id=${id}&format=json&nojsoncallback=1&extras=${fields.join(",")}`;
-	//const url = 'http://localhost:3000/data/paintings.json';
+	const flickrOptions: IFlickrOptions = {
+		extras: ["description", "url_s", "tags"],
+		method: "photosets.getPhotos",
+		photoset_id: id
+	};
+	const url = flickrManager.makeUrl(flickrOptions)
 	
 	let res;
 	try {
 		res = await fetch(url);
 	} catch(e) {
-		throw new Error(`Failed to fetch data from ${flickrEndpoint}?method=${method}`);
+		throw new Error(`Failed to fetch data from Flickr.`);
 	}
    
 	if (!res.ok) throw new Error(`Failed to fetch data from ${url}`)
@@ -32,24 +31,14 @@ async function getPhotoset(id: string) {
 export default async function Paintings({ params }: { params: { collection: string }}) {
 	
 	let error: string | undefined = undefined;
-	let paintings;
+	let paintings: Array<IPainting> = [];
 	const collection = collectionManager.findBySlug(params.collection);
 	let otherCollections;
 	if(collection) {
 		otherCollections = collectionManager.getCollections().filter(c => c.id !== collection.id);
 		try {
 			const photoset = await getPhotoset(collection.id);
-			paintings = photoset.photoset.photo.map(p => {
-				p.dimensions = {
-					height: p.height_s,
-					width: p.width_s
-				};
-				p.slug = photoManager.makeSlug(p);
-				p.urls = {
-					small: p.url_s
-				};
-				return p;
-			});
+			paintings = photoManager.mapPhotos(photoset);
 		} catch(e: any) {
 			error = e.message;
 		}
@@ -75,7 +64,8 @@ export default async function Paintings({ params }: { params: { collection: stri
 									alt={p.title}
 								/>
 							</Link>
-							<p><Link href={`/${collection.slug}/${p.id}/${p.slug}`}>{p.title}</Link></p>
+							<h3><Link href={`/${collection.slug}/${p.id}/${p.slug}`}>{p.title}</Link></h3>
+							<p>{ p.description }</p>
 						</li>
 					))}
 				</ul>
