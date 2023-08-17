@@ -31,7 +31,7 @@ a {
 }
 
 header {
-  border: solid 1px #fff;
+  // border: solid 1px #fff;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -45,7 +45,7 @@ header {
   }
   color: #fff;
   background-color: map-get($colours, primary);
-  opacity: 0.75;
+  opacity: $opacity;
   h1 {
     opacity: 1;
   }
@@ -94,12 +94,23 @@ button {
 footer {
   background-color: #000;
   color: map-get($colours, primary);
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  font-family: "Microgramma";
-  a {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-family: "Microgramma";
+    a, button {
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+    }
+    button {
+      padding: 0;
+      background-color: #000;
+      cursor: pointer;
+      i {
+        font-size: 1rem;
+      }
+    }
   }
 }

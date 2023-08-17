@@ -16,8 +16,6 @@ async function getPhotoset(id: string) {
 
 	const url = `${flickrEndpoint}?method=${method}&api_key=${flickrAPIKey}&photoset_id=${id}&format=json&nojsoncallback=1&extras=${fields.join(",")}`;
 	//const url = 'http://localhost:3000/data/paintings.json';
-
-	// console.log(`url: ${url}`);
 	
 	let res;
 	try {
@@ -82,7 +80,7 @@ export default async function Paintings({ params }: { params: { collection: stri
 					))}
 				</ul>
 			}
-			{ otherCollections ? <ul className={styles.otherCollections}>
+			{ otherCollections ? <ul className={styles.collectionsList}>
 				{ otherCollections.map((c: ICollection, i: number) => (
 					<li key={i}>
 						<Link href={`/${c.slug}`}>{c.title}</Link>

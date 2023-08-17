@@ -38,7 +38,7 @@ export default async function Painting({ params }: { params: { collection: strin
 				<h3><Link href={`/${params.collection}`}>{collection.title}</Link></h3>
 			</div>
 			<div className={styles.frame}>
-				<img srcSet={srcset} alt="Pic" />
+				<img srcSet={srcset} alt={title} />
 			</div>
 		</div>
 	)

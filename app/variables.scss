@@ -19,6 +19,8 @@ $colours: (
   grey: #ccc
 );
 
+$opacity: 0.75;
+
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media (min-width: map-get($breakpoints, $breakpoint)) {

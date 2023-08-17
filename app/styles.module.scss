@@ -35,16 +35,10 @@
 }
 
 .menu {
-	// margin: map-get($margins, small);
-	// @include respond-to(medium) {
-	// 	margin: map-get($margins, medium);
-	// }
-	//margin: 0.15rem 0;
 	border-bottom: solid 3px map-get($colours, secondary);
 	background-color: map-get($colours, tertiary);
-	opacity: 0.8;
+	opacity: $opacity;
 	color: #fff;
-	//border-radius: 0.5rem;
 	padding: 0.5rem;
 	&:hover {
 		cursor: pointer;
@@ -59,7 +53,7 @@
 		align-items: baseline;
 		padding: map-get($margins, small);
 		background-color: map-get($colours, tertiary);
-		opacity: 0.75;
+		opacity: $opacity;
 		@include respond-to(small) {
 			padding: map-get($margins, medium);
 		}
@@ -109,7 +103,7 @@
 	}
 }
 
-.otherCollections {
+.collectionsList {
 	display: flex;
 	background-color: map-get($colours, primary);
 	justify-content: space-evenly;
@@ -134,7 +128,7 @@
 		flex-direction: column;
 		padding: map-get($margins, small);
 		background-color: map-get($colours, secondary);
-		opacity: 0.75;
+		opacity: $opacity;
 		@include respond-to(small) {
 			padding: map-get($margins, medium);
 		}
@@ -155,11 +149,31 @@
 	}
 }
 
-.about {
+.aboutIntro, .aboutContent {
+	color: #fff;
+	font-family: "Roboto";
 	padding: map-get($margins, small);
 	@include respond-to(small) {
 		padding: map-get($margins, medium);
 	}
-	color: #fff;
-	font-family: "Roboto";
+	@include respond-to(medium) {
+		padding: map-get($margins, xlarge);
+	}
+}
+.aboutIntro {
+	background-color: map-get($colours, secondary);
+	opacity: $opacity;
+}
+.aboutContent {
+	background-color: map-get($colours, tertiary);
+	p {
+		margin-top: 0;
+		font-size: 1.15rem;
+	}
+	img {
+		float: left;
+		margin: 0 1rem 1rem 0;
+		width: 50%;
+		height: 50%;
+	}
 }

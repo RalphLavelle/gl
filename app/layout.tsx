@@ -2,7 +2,7 @@ import './globals.scss'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import styles from './styles.module.scss'
-import SearchForm from './components/searchForm' 
+import Footer from './components/footer' 
 
 export const metadata: Metadata = {
   title: 'Gavin Lavelle: Artist',
@@ -14,6 +14,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body>
@@ -27,7 +28,7 @@ export default function RootLayout({
           {children}
         </div>
         <footer>
-          <a href="https://twitter.com/GavinLavelle" target="_blank"><i className="fa-brands fa-x-twitter"></i></a> | <a href="#"><i className="fa-brands fa-instagram"></i></a> | Site by <a href="https://ralphlavelle.net" target="_blank">RL</a>
+          <Footer />
         </footer>
       </body>
     </html>
