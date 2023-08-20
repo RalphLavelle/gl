@@ -26,11 +26,21 @@
 	}
 }
 
-.intro {
-	margin: map-get($margins, small);
-	margin-top: 1rem;
-	@include respond-to(medium) {
-		margin: map-get($margins, medium);
+.intro1, .intro2 {
+	padding: map-get($margins, small);
+	@include respond-to(small) {
+		padding: map-get($margins, medium);
+	}
+}
+.intro1 {
+	background-color: map-get($colours, tertiary);
+}
+.intro2 {
+	background-color: map-get($colours, secondary);
+	ul {
+		margin-left: 1rem;
+		font-family: "Roboto";
+		font-weight: bold;
 	}
 }
 
@@ -201,4 +211,11 @@
 		width: 50%;
 		height: 50%;
 	}
+}
+
+.emailBlock {
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	margin: 1rem 0 0 0;
 }
