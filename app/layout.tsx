@@ -23,6 +23,7 @@ export default function RootLayout({
             <h1><Link href="/">Gavin Lavelle</Link></h1>
             <div className={styles.headerItems}>
               <span><Link href="/about">About</Link></span>
+              <span><Link href="/cv">CV</Link></span>
             </div>
           </header>
           {children}

@@ -5,6 +5,14 @@ export interface ICollection {
 	title: string;
 }
 
+export interface IExhibition {
+	country?: string // default 'IE'
+	group?: boolean; // default true
+	location: string;
+	name: string;
+	time: string;
+}
+
 export interface IFlickrOptions {
 	extras?: Array<string>;
 	method: string;

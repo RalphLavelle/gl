@@ -8,7 +8,10 @@
 .headerItems {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
+	@include respond-to(small) {
+		align-items: flex-end;
+	}
 	font-family: "Roboto";
 	gap: 0.5rem;
 	font-size: 1.25rem;
@@ -184,8 +187,7 @@
 	}
 }
 
-.aboutIntro, .aboutContent {
-	color: #fff;
+.aboutIntro, .aboutContent, .cvIntro, .cv {
 	font-family: "Roboto";
 	padding: map-get($margins, small);
 	@include respond-to(small) {
@@ -195,21 +197,96 @@
 		padding: map-get($margins, xlarge);
 	}
 }
-.aboutIntro {
+.aboutIntro, .cvIntro {
 	background-color: map-get($colours, secondary);
 	opacity: $opacity;
+	color: #fff;
 }
 .aboutContent {
-	background-color: map-get($colours, tertiary);
+	background-color: #fff;
+	color: #000;
+	a {
+		color: map-get($colours, tertiary);
+	}
 	p {
 		margin-top: 0;
-		font-size: 1.15rem;
+		em {
+			font-size: 1.25rem;
+			color: #000;
+			font-style: normal;
+		}
 	}
 	img {
 		float: left;
-		margin: 0 1rem 1rem 0;
+		margin: 0 2rem 2rem 0;
 		width: 50%;
 		height: 50%;
+	}
+	.aboutPress {
+		margin-top: 3rem;
+		font-style: italic;
+		h3 {
+			color: map-get($colours, primary);
+		}
+		.attribution {
+			font-style: normal;
+		}
+	}
+}
+
+.cv {
+	background-color: #fff;
+	color: #000;
+	h3 {
+		color: map-get($colours, primary);
+	}
+	.exhibitions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		@include respond-to(small) {
+			
+			grid-template-columns: 60% 40%;
+		}
+		row-gap: 0.5rem;
+		column-gap: 1rem;
+		.solo {
+			grid-row: 1 / 2;
+			grid-column: span 2;
+			@include respond-to(small) {
+				grid-column: span 2;
+			}
+		}
+		.group {
+			grid-row: 4 / 5;
+			grid-column: span 2;
+			@include respond-to(small) {
+				grid-column: span 2;
+			}
+		}
+		em {
+			font-style: normal;
+			font-weight: bold;
+		}
+		time {
+			font-style: italic;
+			align-self: flex-end;
+			text-align: right;
+		}
+		.locationAndTime {
+			display: flex;
+			flex-direction: column;
+			@include respond-to(small) {
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.location {
+				display: flex;
+				gap: 0.25rem;
+				i {
+					font-style: normal;
+				}
+			}
+		}
 	}
 }
 

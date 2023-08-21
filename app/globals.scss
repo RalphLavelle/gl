@@ -75,6 +75,11 @@ h3 {
   font-size: 1.25em;
   font-family: "Microgramma";
 }
+h4 {
+  font-size: 1.15em;
+  font-family: "Microgramma";
+  color: map-get($colours, tertiary);
+}
 
 ul {
   padding: 0;
