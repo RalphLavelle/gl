@@ -33,20 +33,22 @@ a {
 header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  padding: map-get($margins, small);
-  @include respond-to(small) {
-    padding: map-get($margins, medium);
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  color: #fff;
-  background-color: map-get($colours, primary);
-  opacity: $opacity;
-  h1 {
-    opacity: 1;
+  gap: 0;
+  ul {
+    margin: 0;
+    li {
+      padding: 1rem map-get($margins, small);
+      @include respond-to(small) {
+        padding: map-get($margins, medium);
+      }
+      text-align: center;
+      background-color: #fff;
+      border-bottom: solid 2px map-get($colours, primary);
+      &:hover {
+        background-color: map-get($colours, primary);
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -68,7 +70,6 @@ h2 {
   color: #fff;
   line-height: 2rem;
 }
-
 h3 {
   margin: 0;
   color: #fff;

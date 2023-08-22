@@ -1,8 +1,7 @@
 import './globals.scss'
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import styles from './styles.module.scss'
-import Footer from './components/footer' 
+import Footer from './components/footer'
+import Header from './components/header'
 
 export const metadata: Metadata = {
   title: 'Gavin Lavelle: Artist',
@@ -19,18 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div>
-          <header>
-            <h1><Link href="/">Gavin Lavelle</Link></h1>
-            <div className={styles.headerItems}>
-              <span><Link href="/about">About</Link></span>
-              <span><Link href="/cv">CV</Link></span>
-            </div>
-          </header>
+          <Header />
           {children}
         </div>
-        <footer>
-          <Footer />
-        </footer>
+        <Footer />
       </body>
     </html>
   )
