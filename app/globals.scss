@@ -43,10 +43,15 @@ header {
       }
       text-align: center;
       background-color: #fff;
-      border-bottom: solid 2px map-get($colours, primary);
+      a {
+        color: map-get($colours, primary);
+      }
       &:hover {
         background-color: map-get($colours, primary);
         color: #fff;
+        a {
+            color: #fff;
+        }
       }
     }
   }

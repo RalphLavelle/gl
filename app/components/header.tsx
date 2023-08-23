@@ -16,7 +16,8 @@ export default function Header() {
 			<div className={styles.mainDisplay}>
 				<h1><Link href="/">Gavin Lavelle</Link></h1>
 				<button type="button" className={styles.menuIcon} onClick={toggleMenu}>
-				<i className="fa-solid fa-bars"></i>
+					{ !showSubMenu ? <i className="fa-solid fa-bars"></i> : 
+					<i className="fa-solid fa-xmark"></i> }
 				</button>
 				<div className={styles.headerItems}>
 				<span><Link href="/about">About</Link></span>
