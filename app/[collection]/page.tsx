@@ -6,8 +6,6 @@ import { photoManager } from '../components/photoManager';
 import { collectionManager } from '../components/collectionManager';
 import { flickrManager } from '@/app/components/flickrManager';
 
-// const LoadMore = dynamic(() => import("./loadMore"), { ssr: false });
-
 async function getPhotoset(id: string) {
 	const flickrOptions: IFlickrOptions = {
 		extras: ["description", "url_s", "tags"],
@@ -33,9 +31,9 @@ export default async function Paintings({ params }: { params: { collection: stri
 	let error: string | undefined = undefined;
 	let paintings: Array<IPainting> = [];
 	const collection = collectionManager.findBySlug(params.collection);
-	let otherCollections;
+	let collections;
 	if(collection) {
-		otherCollections = collectionManager.getCollections().filter(c => c.id !== collection.id);
+		collections = collectionManager.getCollections().filter(c => c.id !== collection.id);
 		try {
 			const photoset = await getPhotoset(collection.id);
 			paintings = photoManager.mapPhotos(photoset);
@@ -48,36 +46,38 @@ export default async function Paintings({ params }: { params: { collection: stri
 	}
 	
 	return (
-		<div className={styles.collection}>
-			<div className={styles.titleBar}>
+		<>
+			<div className={styles.subheader}>
 				<h2>{ error ? "Error" : collection.title }</h2>
 			</div>
-			{ error ? <p className={styles.content}>{ error }</p> :
-				<ul className={styles.paintings}>
-					{ paintings.map((p: IPainting, i: number) => (
-						<li key={i}>
-							<Link href={`/${collection.slug}/${p.id}/${p.slug}`}>
-								<Image
-									src={p.urls.small}
-									height={p.dimensions.height}
-									width={p.dimensions.width}
-									alt={p.title}
-								/>
-							</Link>
-							<h3><Link href={`/${collection.slug}/${p.id}/${p.slug}`}>{p.title}</Link></h3>
-							<p>{ p.description }</p>
-						</li>
-					))}
-				</ul>
-			}
-			{ otherCollections ? <ul className={styles.collectionsList}>
-				{ otherCollections.map((c: ICollection, i: number) => (
+			<div className={styles.collection}>
+				{ error ? <p className={styles.content}>{ error }</p> :
+					<ul className={styles.paintings}>
+						{ paintings.map((p: IPainting, i: number) => (
+							<li key={i}>
+								<Link href={`/${collection.slug}/${p.id}/${p.slug}`}>
+									<Image
+										src={p.urls.small}
+										height={p.dimensions.height}
+										width={p.dimensions.width}
+										alt={p.title}
+									/>
+								</Link>
+								<h3><Link href={`/${collection.slug}/${p.id}/${p.slug}`}>{p.title}</Link></h3>
+								<p>{ p.description }</p>
+							</li>
+						))}
+					</ul>
+				}
+				<h3>Works:</h3>
+				{ collections ? <ul className={styles.collectionsList}>
+				{ collections.map((c: ICollection, i: number) => (
 					<li key={i}>
 						<Link href={`/${c.slug}`}>{c.title}</Link>
 					</li>
 				))}
-			</ul> : null }
-			{/* <LoadMore /> */}
-		</div>
+				</ul> : null }
+			</div>
+		</>
 	)
 }

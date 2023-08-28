@@ -8,14 +8,13 @@ export default function CV() {
 
 	const collections = collectionManager.getCollections();
 	const exhibitions = exhibitionManager.getExhibitions().map(e => {
-		e.country = e.country || 'IE';
 		e.group = e.group == undefined ? true : e.group;
 		return e;
 	});
 
   	return (
 		<>
-			<div className={styles.cvIntro}>
+			<div className={styles.subheader}>
 				<h3>CV</h3>
 			</div>
 			<div className={styles.cv}>
@@ -27,7 +26,6 @@ export default function CV() {
 							<em>{ e.name }</em>
 							<div className={styles.locationAndTime}>
 								<div className={styles.location}>
-									{ e.country == 'IE' ? <i>&#x1F1EE;&#x1F1EA;</i> : <i>&#x1F1EC;&#x1F1E7;</i> }
 									<span>{ e.location }</span>
 								</div>
 								<time>{ e.time }</time>
@@ -35,16 +33,16 @@ export default function CV() {
 						</>
 					))}
 				</div>
-
-				<p>RTE Open House / Irish Arts Review Emerging artist of the year award (2004)</p>	
-			</div>
-			{ collections ? <ul className={styles.collectionsList}>
+				<p>RTE Open House / Irish Arts Review Emerging artist of the year award (2004)</p>
+				<h3>Works:</h3>
+				{ collections ? <ul className={styles.collectionsList}>
 				{ collections.map((c: ICollection, i: number) => (
 					<li key={i}>
 						<Link href={`/${c.slug}`}>{c.title}</Link>
 					</li>
 				))}
-			</ul> : null }
+			</ul> : null }	
+			</div>
 		</>
   	)
 }

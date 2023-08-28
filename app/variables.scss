@@ -13,13 +13,10 @@ $margins: (
 );
 
 $colours: (
-  primary: #48f,
-  secondary: #4b8,
-  tertiary: #b84,
-  grey: #ccc
+  light: #fff,
+  grey: #bbb,
+  dark: #000
 );
-
-$opacity: 0.75;
 
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {

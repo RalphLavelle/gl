@@ -6,7 +6,6 @@ export interface ICollection {
 }
 
 export interface IExhibition {
-	country?: string // default 'IE'
 	group?: boolean; // default true
 	location: string;
 	name: string;

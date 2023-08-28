@@ -1,10 +1,5 @@
 @import './variables.scss';
 
-@font-face {
-	font-family: "Roboto";
-	src: url("/fonts/Roboto-Regular.ttf");
-}
-
 .menuIcon {
 	border: 0;
 	padding: 0;
@@ -28,19 +23,13 @@
     @include respond-to(small) {
       padding: map-get($margins, medium);
     }
-    color: #fff;
-    background-color: map-get($colours, primary);
-    opacity: $opacity;
-    h1 {
-      opacity: 1;
-    }
+    background-color: map-get($colours, light);
 	.headerItems {
 		display: none;
 		@include respond-to(medium) {
 			display: flex;
 			align-items: flex-end;
 		}
-		font-family: "Roboto";
 		gap: 1.5rem;
 		font-size: 1.25rem;
 	}
@@ -50,11 +39,16 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	a {
+		color: map-get($colours, dark);
+		&:hover {
+			color: map-get($colours, grey);
+		}
+	}
 }
 
 .content {
 	color: #fff;
-	font-family: "Roboto";
 	margin: map-get($margins, small);
 	@include respond-to(small) {
 		margin: map-get($margins, medium);
@@ -64,50 +58,40 @@
 	}
 }
 
-.intro1, .intro2 {
+.subheader, .intro2 {
 	padding: map-get($margins, small);
 	@include respond-to(small) {
 		padding: map-get($margins, medium);
 	}
 }
-.intro1 {
-	background-color: map-get($colours, tertiary);
+
+.subheader {
+	background-color: map-get($colours, grey);
+	color: map-get($colours, light);
 }
+
 .intro2 {
-	background-color: map-get($colours, secondary);
+	color: map-get($colours, dark);
 	ul {
 		margin-left: 1rem;
-		font-family: "Roboto";
 		font-weight: bold;
 	}
 }
 
 .menu {
-	border-bottom: solid 3px map-get($colours, secondary);
-	background-color: map-get($colours, tertiary);
-	opacity: $opacity;
+	border-bottom: solid 3px map-get($colours, dark);
 	color: #fff;
 	padding: 0.5rem;
 	&:hover {
 		cursor: pointer;
-		background-color: map-get($colours, primary);
+		background-color: map-get($colours, dark);
 	}
 }
 
 .collection {
-	.titleBar {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		padding: map-get($margins, small);
-		background-color: map-get($colours, tertiary);
-		opacity: $opacity;
-		@include respond-to(small) {
-			padding: map-get($margins, medium);
-		}
-		h2 {
-			word-break: keep-all;
-		}
+	padding: map-get($margins, small);
+	@include respond-to(small) {
+		padding: map-get($margins, medium);
 	}
 	.paintings {
 		display: grid;
@@ -126,24 +110,11 @@
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 		li {
-			background-color: #eee;
-			border-radius: 0.5rem;
-			padding: 0.5rem;
-			color: map-get($colours, primary);
 			justify-self: center; 
 			align-self: end;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			font-family: "Microgramma";
-			a {
-				color: map-get($colours, primary);
-				position: relative;
-			}
-			&:hover {
-				cursor: pointer;
-				background-color: #ddd;
-			}
 			p {
 				word-wrap: normal;
 				padding: 0 1rem;
@@ -154,49 +125,19 @@
 			}
 		}
 	}
-	.loadMore {
-		display: flex;
-		justify-content: center;
-		margin-top: 2rem
-	}
 }
 
-.collectionsList {
+.paintingTitle {
 	display: flex;
-	background-color: map-get($colours, primary);
-	justify-content: space-evenly;
-	margin: 0;
-	li {
-		flex: 0 1 33%;
-		text-align: center;
-		padding: 0.5rem;
-		font-family: "Microgramma";
-		&:hover {
-			cursor: pointer;
-			background-color: map-get($colours, secondary);
-		}
-		border-left: 1px solid #fff;
-		border-right: 1px solid #fff;
+	flex-direction: column;
+	a {
+		align-self: flex-end;
 	}
 }
-
 .painting {
-	.titleBar {
-		display: flex;
-		flex-direction: column;
-		padding: map-get($margins, small);
-		background-color: map-get($colours, secondary);
-		opacity: $opacity;
-		@include respond-to(small) {
-			padding: map-get($margins, medium);
-		}
-		h2 {
-			text-transform: capitalize;
-			color: #fff;
-		}
-		h3 {
-			align-self: flex-end;
-		}
+	padding: map-get($margins, small);
+	@include respond-to(small) {
+		padding: map-get($margins, medium);
 	}
 	.frame {
 		border: solid 4px map-get($colours, grey);
@@ -209,21 +150,16 @@
 		}
 	}
 	.description {
-		background-color: map-get($colours, tertiary);
 		padding: map-get($margins, small);
-		opacity: $opacity;
 		@include respond-to(small) {
 			padding: map-get($margins, medium);
 		}
 		margin: 0;
-		color: #fff;
-		font-family: "Roboto";
 		text-align: center;
 	}
 }
 
-.aboutIntro, .aboutContent, .cvIntro, .cv {
-	font-family: "Roboto";
+.aboutIntro, .aboutContent, .cv {
 	padding: map-get($margins, small);
 	@include respond-to(small) {
 		padding: map-get($margins, medium);
@@ -232,22 +168,16 @@
 		padding: map-get($margins, xlarge);
 	}
 }
-.aboutIntro, .cvIntro {
-	background-color: map-get($colours, secondary);
-	opacity: $opacity;
+.aboutIntro {
+	background-color: map-get($colours, dark);
 	color: #fff;
 }
 .aboutContent {
-	background-color: #fff;
-	color: #000;
-	a {
-		color: map-get($colours, tertiary);
-	}
 	p {
 		margin-top: 0;
 		em {
 			font-size: 1.25rem;
-			color: #000;
+			color: map-get($colours, dark);
 			font-style: normal;
 		}
 	}
@@ -260,9 +190,6 @@
 	.aboutPress {
 		margin-top: 3rem;
 		font-style: italic;
-		h3 {
-			color: map-get($colours, primary);
-		}
 		.attribution {
 			font-style: normal;
 		}

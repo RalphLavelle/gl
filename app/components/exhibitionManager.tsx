@@ -21,7 +21,6 @@ const exhibitionManager = {
 				time: '2006, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023'
 			},
 			{
-				country: 'GB',
 				name: 'Royal Ulster Academy',
 				location: 'Belfast, NI',
 				time: '2010, 2012, 2014, 2015, 2016, 2017, 2019, 2021, 2022, 2023'
@@ -42,13 +41,11 @@ const exhibitionManager = {
 				time: '2015-'
 			},
 			{
-				country: 'GB',
 				name: 'Royal West of England Academy, Autumn Exhibition',
 				location: 'Bristol, UK',
 				time: '2012'
 			},
 			{
-				country: 'GB',
 				name: 'Medici Gallery',
 				location: 'Mayfair, London, UK',
 				time: '2012, 2013'
@@ -64,7 +61,6 @@ const exhibitionManager = {
 				time: '2012-'
 			},
 			{
-				country: 'GB',
 				name: 'McKenna Gallery',
 				location: 'Omagh, Co. Tyrone',
 				time: '2011'
@@ -75,7 +71,6 @@ const exhibitionManager = {
 				time: '2008'
 			},
 			{
-				country: 'GB',
 				name: 'Whalley Fine Art',
 				location: 'Holywood, Co.Down',
 				time: '2008'
@@ -86,19 +81,16 @@ const exhibitionManager = {
 				time: '2005'
 			},
 			{
-				country: 'GB',
 				name: 'Stables Gallery',
 				location: 'Portstewart, Co. Derry',
 				time: '2005'
 			},
 			{
-				country: 'GB',
 				name: 'Petley Fine Art',
 				location: 'London',
 				time: '2005'
 			},
 			{
-				country: 'GB',
 				name: 'McGilloway Gallery',
 				location: 'Derry',
 				time: '2004'

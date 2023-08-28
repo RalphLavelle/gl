@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.intro1}>
+      <div className={styles.subheader}>
         <h3>Irish artist, based in Clifden, Co. Galway, Ireland</h3>
       </div>
       <div className={styles.intro2}>
@@ -19,12 +19,13 @@ export default function Home() {
           <li><a href="https://rhagallery.ie/rha-annual" target="_blank">RHA (Royal Hibernian Academy) Annual Exhibition, Dublin</a></li>
           <li><a href="https://www.royalulsteracademy.org/annual-exhibition/" target="_blank">Royal Ulster Academy of Arts Annual Exhibition, Belfast, Northern Ireland</a></li>
         </ul>
+        <h3>Works:</h3>
+        <ul>
+        { collections.map((c, i) => (
+          <li key={c.id}><Link href={`${c.slug}`}>{c.title}</Link></li>
+        ))}
+        </ul>
       </div>
-      { collections.map((c, i) => (
-        <div key={c.id} className={styles.menu}>
-          <Link href={`${c.slug}`}><h2>{c.title}</h2></Link>
-        </div>
-      ))}
     </>
   )
 }

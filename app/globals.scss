@@ -3,30 +3,28 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 @font-face {
-  font-family: "Microgramma";
-  src: url("/fonts/Microgramma.otf");
-}
-@font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto-Regular.ttf");
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v28/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 body {
-    background-image: url('/images/bg.jpg');
-    background-position: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0;
     margin: 0;
+    font-family: 'Raleway';
 }
 
 a {
   text-decoration: none;
-  color: #ddd;
+  color: map-get($colours, dark);
   &:hover {
-    color: #eee;
+    color: map-get($colours, grey);
   }
 }
 
@@ -42,15 +40,15 @@ header {
         padding: map-get($margins, medium);
       }
       text-align: center;
-      background-color: #fff;
+      background-color: map-get($colours, light);
       a {
-        color: map-get($colours, primary);
+        color: map-get($colours, light);
       }
       &:hover {
-        background-color: map-get($colours, primary);
-        color: #fff;
+        background-color: map-get($colours, light);
+        color: map-get($colours, light);
         a {
-            color: #fff;
+            color: map-get($colours, light);
         }
       }
     }
@@ -59,7 +57,6 @@ header {
 
 h1 {
   font-size: 3em;
-  font-family: "Microgramma";
   margin: 0;
   padding: 0;
   line-height: 2rem;
@@ -71,20 +68,14 @@ h2 {
   @media screen and (min-width: 768px) {
 		font-size: 3em;
 	}
-  font-family: "Microgramma";
-  color: #fff;
   line-height: 2rem;
 }
 h3 {
   margin: 0;
-  color: #fff;
   font-size: 1.25em;
-  font-family: "Microgramma";
 }
 h4 {
   font-size: 1.15em;
-  font-family: "Microgramma";
-  color: map-get($colours, tertiary);
 }
 
 ul {
@@ -92,29 +83,27 @@ ul {
   list-style: none;
 }
 
-button {
-  background-color: map-get($colours, primary);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
 footer {
-  background-color: #000;
-  color: map-get($colours, primary);
+  background-color: map-get($colours, dark);
+  color: map-get($colours, light);
   div {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    font-family: "Microgramma";
     a, button {
       margin-left: 0.25rem;
       margin-right: 0.25rem;
     }
+    a, button {
+      color: map-get($colours, light);
+      &:hover {
+        color: map-get($colours, grey);
+      }
+    }
     button {
       padding: 0;
-      background-color: #000;
+      background-color: map-get($colours, dark);
       cursor: pointer;
       i {
         font-size: 1rem;

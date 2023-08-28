@@ -50,16 +50,18 @@ export default async function Painting({ params }: { params: { collection: strin
 	description = info.photo.description._content
 
 	return (
-		<div className={styles.painting}>
-			{ loading ? <Image src="/spinner.svg" width="32" height="32" alt="Loading" /> : null }
-			<div className={styles.titleBar}>
+		<>
+			<div className={`${styles.subheader} ${styles.paintingTitle}`}>
 				<h2>{ title }</h2>
-				<h3><Link href={`/${params.collection}`}>{collection.title}</Link></h3>
+				<Link href={`/${params.collection}`}>{collection.title}</Link>
 			</div>
-			<div className={styles.frame}>
-				<img srcSet={srcset} alt={title} />
+			<div className={styles.painting}>
+				{ loading ? <Image src="/spinner.svg" width="32" height="32" alt="Loading" /> : null }
+				<div className={styles.frame}>
+					<img srcSet={srcset} alt={title} />
+				</div>
+				<p className={styles.description}>{ description }</p>
 			</div>
-			<p className={styles.description}>{ description }</p>
-		</div>
+		</>
 	)
 }
