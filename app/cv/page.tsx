@@ -1,12 +1,11 @@
 import styles from '../styles.module.scss'
-import { collectionManager } from '../components/collectionManager';
-import Link from 'next/link';
-import { ICollection, IExhibition } from '../interfaces';
+import { IExhibition } from '../interfaces';
 import { exhibitionManager } from '../components/exhibitionManager';
+import studio from './../../public/images/studio.jpg'
+import Image from 'next/image'
 
 export default function CV() {
 
-	const collections = collectionManager.getCollections();
 	const exhibitions = exhibitionManager.getExhibitions().map(e => {
 		e.group = e.group == undefined ? true : e.group;
 		return e;
@@ -18,6 +17,7 @@ export default function CV() {
 				<h3>CV</h3>
 			</div>
 			<div className={styles.cv}>
+				<Image src={studio} alt="In the studio" />
 				<div className={styles.exhibitions}>
 					<h4 className={styles.solo}>Solo exhibitions</h4>
 					<h4 className={styles.group}>Group exhibitions</h4>
@@ -25,23 +25,13 @@ export default function CV() {
 						<>
 							<em>{ e.name }</em>
 							<div className={styles.locationAndTime}>
-								<div className={styles.location}>
-									<span>{ e.location }</span>
-								</div>
+								<span>{ e.location }</span>
 								<time>{ e.time }</time>
 							</div>
 						</>
 					))}
 				</div>
 				<p>RTE Open House / Irish Arts Review Emerging artist of the year award (2004)</p>
-				<h3>Works:</h3>
-				{ collections ? <ul className={styles.collectionsList}>
-				{ collections.map((c: ICollection, i: number) => (
-					<li key={i}>
-						<Link href={`/${c.slug}`}>{c.title}</Link>
-					</li>
-				))}
-			</ul> : null }	
 			</div>
 		</>
   	)

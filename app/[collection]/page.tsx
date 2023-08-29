@@ -1,4 +1,4 @@
-import { ICollection, IFlickrOptions, IPainting } from '../interfaces';
+import { IFlickrOptions, IPainting } from '../interfaces';
 import styles from '../styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link';
@@ -31,9 +31,7 @@ export default async function Paintings({ params }: { params: { collection: stri
 	let error: string | undefined = undefined;
 	let paintings: Array<IPainting> = [];
 	const collection = collectionManager.findBySlug(params.collection);
-	let collections;
 	if(collection) {
-		collections = collectionManager.getCollections().filter(c => c.id !== collection.id);
 		try {
 			const photoset = await getPhotoset(collection.id);
 			paintings = photoManager.mapPhotos(photoset);
@@ -69,14 +67,6 @@ export default async function Paintings({ params }: { params: { collection: stri
 						))}
 					</ul>
 				}
-				<h3>Works:</h3>
-				{ collections ? <ul className={styles.collectionsList}>
-				{ collections.map((c: ICollection, i: number) => (
-					<li key={i}>
-						<Link href={`/${c.slug}`}>{c.title}</Link>
-					</li>
-				))}
-				</ul> : null }
 			</div>
 		</>
 	)

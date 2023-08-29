@@ -23,12 +23,22 @@
     @include respond-to(small) {
       padding: map-get($margins, medium);
     }
-    background-color: map-get($colours, light);
 	.headerItems {
 		display: none;
 		@include respond-to(medium) {
 			display: flex;
 			align-items: flex-end;
+			.works {
+				display: flex;
+				gap: 0.5rem;
+				ul {
+					display: flex;
+					gap: 0.5rem;
+					li {
+						padding: 0;
+					}
+				}
+			}
 		}
 		gap: 1.5rem;
 		font-size: 1.25rem;
@@ -39,10 +49,19 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	a {
-		color: map-get($colours, dark);
-		&:hover {
-			color: map-get($colours, grey);
+	li {
+		border-top: solid 1px map-get($colours, grey);
+		a {
+			color: map-get($colours, dark);
+			&:hover {
+				color: map-get($colours, grey);
+			}
+		}
+		&.collections {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 0.25rem;
 		}
 	}
 }
@@ -58,7 +77,7 @@
 	}
 }
 
-.subheader, .intro2 {
+.subheader, .intro {
 	padding: map-get($margins, small);
 	@include respond-to(small) {
 		padding: map-get($margins, medium);
@@ -70,7 +89,7 @@
 	color: map-get($colours, light);
 }
 
-.intro2 {
+.intro {
 	color: map-get($colours, dark);
 	ul {
 		margin-left: 1rem;
@@ -202,12 +221,15 @@
 	h3 {
 		color: map-get($colours, primary);
 	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 	.exhibitions {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		@include respond-to(small) {
-			
-			grid-template-columns: 60% 40%;
+		@include respond-to(medium) {
+			grid-template-columns: 1.5fr 1fr;
 		}
 		row-gap: 0.5rem;
 		column-gap: 1rem;
@@ -221,7 +243,7 @@
 		.group {
 			grid-row: 4 / 5;
 			grid-column: span 2;
-			@include respond-to(small) {
+			@include respond-to(medium) {
 				grid-column: span 2;
 			}
 		}
@@ -237,16 +259,9 @@
 		.locationAndTime {
 			display: flex;
 			flex-direction: column;
-			@include respond-to(small) {
+			@include respond-to(medium) {
 				flex-direction: row;
 				justify-content: space-between;
-			}
-			.location {
-				display: flex;
-				gap: 0.25rem;
-				i {
-					font-style: normal;
-				}
 			}
 		}
 	}

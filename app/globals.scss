@@ -20,6 +20,10 @@ body {
     font-family: 'Raleway';
 }
 
+button {
+  background-color: map-get($colours, light);
+}
+
 a {
   text-decoration: none;
   color: map-get($colours, dark);
@@ -41,16 +45,6 @@ header {
       }
       text-align: center;
       background-color: map-get($colours, light);
-      a {
-        color: map-get($colours, light);
-      }
-      &:hover {
-        background-color: map-get($colours, light);
-        color: map-get($colours, light);
-        a {
-            color: map-get($colours, light);
-        }
-      }
     }
   }
 }
