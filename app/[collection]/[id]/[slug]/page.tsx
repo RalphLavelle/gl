@@ -47,7 +47,7 @@ export default async function Painting({ params }: { params: { collection: strin
 
 	// now get the description
 	const info = await getInfo(params.id)
-	description = info.photo.description._content
+	description = photoManager.resolveDescription(info.photo);
 
 	return (
 		<>

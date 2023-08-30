@@ -6,7 +6,7 @@ const photoManager = {
 	},
 	mapPhotos: (flickrPhotoset): Array<IPainting> => {
 		return flickrPhotoset.photoset.photo.map(p => {
-			p.description = p.description._content,
+			p.description = photoManager.resolveDescription(p),
 			p.dimensions = {
 				height: p.height_s,
 				width: p.width_s
@@ -17,6 +17,9 @@ const photoManager = {
 			};
 			return p;
 		});
+	},
+	resolveDescription: (photo: any) => {
+		return photo.description._content.replace('&amp;', '&');
 	},
 	resolveTitle: (slug: string) => {
 		return slug.replace(/-/g, " ");
