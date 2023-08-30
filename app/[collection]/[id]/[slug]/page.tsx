@@ -12,7 +12,7 @@ async function getPhotoSizes(id: number) {
 		photo_id: id.toString()
 	};
 	const url = flickrManager.makeUrl(flickrOptions)
-	const res = await fetch(url);
+	const res = await fetch(url, { cache: "no-cache" });
    
 	if (!res.ok) throw new Error('Failed to fetch data')
    
@@ -26,7 +26,7 @@ async function getInfo(id: number) {
 	};
 	const url = flickrManager.makeUrl(flickrOptions)
 	
-	const res = await fetch(url);
+	const res = await fetch(url, { cache: "no-cache" });
    
 	if (!res.ok) throw new Error('Failed to fetch data')
    
