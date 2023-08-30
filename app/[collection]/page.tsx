@@ -16,7 +16,8 @@ async function getPhotoset(id: string) {
 	
 	let res;
 	try {
-		res = await fetch(url);
+		const { signal } = new AbortController()
+		res = await fetch(url, { signal });
 	} catch(e) {
 		throw new Error(`Failed to fetch data from Flickr.`);
 	}
