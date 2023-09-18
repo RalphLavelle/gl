@@ -13,10 +13,10 @@ export default function Home() {
         <figure><Image src={studio} alt="In the studio" /></figure>
         <h3>In galleries:</h3>
         <ul>
-          <li><a href="http://lavelleartgallery.ie/artists/paintings/gavin-lavelle/" target="_blank">The Lavelle Art Gallery, Clifden, Co. Galway</a></li>
-          <li><a href="https://canvasgalleries.com/collections/gavin-lavelle" target="_blank">Canvas Galleries, Belfast, Northern Ireland</a></li>
-          <li><a href="https://rhagallery.ie/rha-annual" target="_blank">RHA (Royal Hibernian Academy) Annual Exhibition, Dublin</a></li>
-          <li><a href="https://www.royalulsteracademy.org/annual-exhibition/" target="_blank">Royal Ulster Academy of Arts Annual Exhibition, Belfast, Northern Ireland</a></li>
+          <li>&gt;&gt;<a href="http://lavelleartgallery.ie/artists/paintings/gavin-lavelle/" target="_blank">The Lavelle Art Gallery, Clifden, Co. Galway</a></li>
+          <li>&gt;&gt;<a href="https://canvasgalleries.com/collections/gavin-lavelle" target="_blank">Canvas Galleries, Belfast, Northern Ireland</a></li>
+          <li>&gt;&gt;<a href="https://rhagallery.ie/rha-annual" target="_blank">RHA (Royal Hibernian Academy) Annual Exhibition, Dublin</a></li>
+          <li>&gt;&gt;<a href="https://www.royalulsteracademy.org/annual-exhibition/" target="_blank">Royal Ulster Academy of Arts Annual Exhibition, Belfast, Northern Ireland</a></li>
         </ul>
       </div>
     </>

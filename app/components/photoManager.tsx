@@ -20,9 +20,6 @@ const photoManager = {
 	},
 	resolveDescription: (photo: any) => {
 		return photo.description._content.replace('&amp;', '&');
-	},
-	resolveTitle: (slug: string) => {
-		return slug.replace(/-/g, " ");
 	}
 };
 

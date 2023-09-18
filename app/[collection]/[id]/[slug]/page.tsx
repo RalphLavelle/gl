@@ -37,7 +37,8 @@ export default async function Painting({ params }: { params: { collection: strin
 
 	let loading = true;
 	let description = "Loading..."
-	const title = photoManager.resolveTitle(params.slug);
+	let title  = "Loading..."
+
 	const photoSizes = await getPhotoSizes(params.id);
 	loading = false;
 
@@ -45,9 +46,10 @@ export default async function Painting({ params }: { params: { collection: strin
 
 	const srcset = photoSizes.sizes.size.map((s: any) => `${s.source} ${s.width}w`).join(", ");
 
-	// now get the description
+	// now get the title and description 
 	const info = await getInfo(params.id)
 	description = photoManager.resolveDescription(info.photo);
+	title = info.photo.title._content; 
 
 	return (
 		<>
