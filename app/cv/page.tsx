@@ -1,7 +1,7 @@
 import styles from '../styles.module.scss'
 import { IExhibition } from '../interfaces';
 import { exhibitionManager } from '../components/exhibitionManager';
-import studio from './../../public/images/studio.jpg'
+import gavPic from './../../public/images/gl.jpg'
 import Image from 'next/image'
 
 export default function CV() {
@@ -17,7 +17,7 @@ export default function CV() {
 				<h3>CV</h3>
 			</div>
 			<div className={styles.cv}>
-				<Image src={studio} alt="In the studio" />
+				<Image src={gavPic} alt="Gavin Lavelle" />
 				<div className={styles.exhibitions}>
 					<h4 className={styles.solo}>Solo exhibitions</h4>
 					<h4 className={styles.group}>Group exhibitions</h4>
