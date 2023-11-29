@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import gavPic from './../public/images/gav.jpg'
+import gavPic from './../public/images/gl.jpg'
 import Image from 'next/image'
 
 export default function Home() {

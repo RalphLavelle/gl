@@ -1,6 +1,6 @@
 import styles from '../styles.module.scss'
 import Image from 'next/image'
-import gavPic from './../../public/images/gav.jpg'
+import gavPic from './../../public/images/gl.jpg'
 
 export default function About() {
 
