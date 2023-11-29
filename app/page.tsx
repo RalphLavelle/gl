@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import studio from './../public/images/studio.jpg'
+import gavPic from './../public/images/gav.jpg'
 import Image from 'next/image'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         <h3>Irish artist, based in Clifden, Co. Galway, Ireland</h3>
       </div>
       <div className={styles.intro}>
-        <figure><Image src={studio} alt="In the studio" /></figure>
+        <figure><Image src={gavPic} alt="Gavin Lavelle" /></figure>
         <h3>In galleries:</h3>
         <ul>
           <li>&gt;&gt; <a href="http://lavelleartgallery.ie/artists/paintings/gavin-lavelle/" target="_blank">The Lavelle Art Gallery, Clifden, Co. Galway</a></li>
