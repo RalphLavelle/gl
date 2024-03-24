@@ -4,6 +4,11 @@ const collectionManager = {
 	getCollections: (): (ICollection[]) => {
 		let collections: ICollection[] = [
 			{
+				id: "72177720315651929",
+				primaryPaintingId: "53606672738",
+				title: "2024"
+			},
+			{
 				id: "72177720310496553",
 				primaryPaintingId: "53107746629",
 				title: "2023"
