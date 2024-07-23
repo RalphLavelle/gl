@@ -1,6 +1,5 @@
 export interface ICollection {
 	id: string;
-	primaryPaintingId?: string;
 	slug?: string;
 	title: string;
 }
